@@ -22,8 +22,6 @@
 #
 
 import sys
-#import config
-#import comm
 from PyQt5.QtWidgets import QApplication
 
 from MyAlgorithm import MyAlgorithm
@@ -32,12 +30,8 @@ from gui.GUI import MainWindow
 from threadMotors import ThreadMotors
 from threadMotors import Velocity
 
-#import easyiceconfig as EasyIce
-#from parallelIce.pose3dClient import Pose3D
-#from parallelIce.motors import Motors
 from sensors.sensor import Sensor
 from sensors.grid import Grid
-
 
 from interfaces.motors import PublisherMotors		
 from interfaces.pose3d import ListenerPose3d
@@ -45,7 +39,6 @@ from interfaces.pose3d import ListenerPose3d
 import signal
 
 signal.signal(signal.SIGINT, signal.SIG_DFL)
-
 
 def removeMapFromArgs():
     for arg in sys.argv:
@@ -65,8 +58,8 @@ if __name__ == '__main__':
 
     removeMapFromArgs()
 
-    motors = PublisherMotors("/amazon_warehouse_robot/cmd_vel", 0.5, 0.01)
-    pose = ListenerPose3d("/amazon_warehouse_robot/odom")
+    motors = PublisherMotors("/cmd_vel", 0.5, 0.1)
+    pose = ListenerPose3d("/odom")
 
     vel = Velocity(0, 0, motors.getMaxV(), motors.getMaxW())
 

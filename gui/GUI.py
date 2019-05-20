@@ -177,6 +177,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def gotoPointExecute(self):
         self.algorithm.setGotoPointFlag(self.playButton.isChecked())
+        # self.algorithm.gotoPoint()
 
     def setDestinyXYValues(self,newX,newY):
         self.XValue.setText(str(newX))

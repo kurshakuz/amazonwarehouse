@@ -108,7 +108,7 @@ class MyAlgorithm(threading.Thread):
         path to the desired destiny.
         The destiny is chosen in the GUI, making double click in the map.
         This method will be call when you press the Generate Path button. 
-        Call to grid.setPath(path) mathod for setting the path. """
+        Call to grid.setPath(path) method for setting the path. """
     def generatePath(self, list):
         print("LOOKING FOR SHORTER PATH")
         mapIm = self.grid.getMap()      
@@ -358,12 +358,6 @@ class MyAlgorithm(threading.Thread):
             K = 0
             self.printK_V = K
 
-
-    """ Write in this mehtod the code necessary for going to the desired place,
-        once you have generated the shorter path.
-        This method will be periodically called after you press the GO! button. """
-
-
     def moveOnPath(self):
         self.correctYawInRobotFrame()
         if self.yawCorrected:
@@ -401,6 +395,9 @@ class MyAlgorithm(threading.Thread):
             self.printDebugInfo()
             self.yawCorrected = False
 
+    """ Write in this method the code necessary for going to the desired place,
+        once you have generated the shorter path.
+        This method will be periodically called after you press the GO! button. """
     def execute(self):
         if self.gotoPointChecked:
             self.gotoPoint()
